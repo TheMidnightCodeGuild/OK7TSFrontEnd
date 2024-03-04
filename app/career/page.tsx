@@ -1,10 +1,12 @@
 "use client";
+import React, { useState } from "react";
+import { SparklesCore } from "@/components/ui/sparkles";
 import { ChangeEvent } from "react";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/input";
 import { cn } from "@/utils/cn";
 
-export function  SignupFormDemo() {
+function  SignupFormDemo() {
   const [firstName,setFirstName] = useState('');
   const [lastName,setLastName] = useState('');
   const [email,setEmail] = useState('');
@@ -123,8 +125,7 @@ const LabelInputContainer = ({
   );
 };
 
-import React, { useState } from "react";
-import { SparklesCore } from "@/components/ui/sparkles";
+
 
 export default function SparklesPreview() {
   return (
