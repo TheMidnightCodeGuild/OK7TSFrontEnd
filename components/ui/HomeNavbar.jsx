@@ -1,7 +1,8 @@
 "use client";
 import React,{useState} from "react";
-import {Navbar, NavbarBrand, NavbarContent, NavbarItem, NavbarMenuToggle, NavbarMenu, NavbarMenuItem, Link, Button} from "@nextui-org/react";
+import {Navbar, NavbarBrand, NavbarContent, NavbarItem, NavbarMenuToggle, NavbarMenu, NavbarMenuItem,  Button} from "@nextui-org/react";
 import Image from "next/image";
+import Link from "next/link";
 
 
 
@@ -9,10 +10,10 @@ export default function HomeNavbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const menuItems = [
-    "Home",
-    "Career",
-    "About",
-    "Technologies",
+    {title: "Home", link: '/'},
+    {title: "Career", link: '/career'},
+    {title: "About", link: '/about'},
+    {title: "Technologies", link: '/technologies'},
   ];
 
   return (
@@ -51,23 +52,23 @@ export default function HomeNavbar() {
       </NavbarContent>
       <NavbarContent justify="end">
         <NavbarItem>
-          <Button as={Link} color="primary" href="#" variant="flat">
+          <Button as={Link} color="primary" href="/career" variant="flat">
             Apply Now!
           </Button>
         </NavbarItem>
       </NavbarContent>
       <NavbarMenu>
         {menuItems.map((item, index) => (
-          <NavbarMenuItem key={`${item}-${index}`}>
+          <NavbarMenuItem key={`${item.title}-${index}`}>
             <Link
               color={
                 "foreground"
               }
               className="w-full"
-              href="#"
+              href={item.link}
               size="lg"
             >
-              {item}
+              {item.title}
             </Link>
           </NavbarMenuItem>
         ))}
