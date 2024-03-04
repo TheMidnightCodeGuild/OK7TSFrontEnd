@@ -51,6 +51,7 @@ export const StickyScroll = ({
     "linear-gradient(to bottom right, var(--orange-500), var(--yellow-500))",
   ];
   return (
+    <div className=" w-[100vw] flex justify-center items-center h-[100vh] bg-black p-5">
     <motion.div
       animate={{
         backgroundColor: backgroundColors[activeCard % backgroundColors.length],
@@ -90,16 +91,17 @@ export const StickyScroll = ({
         </div>
       </div>
       <motion.div
-        animate={{
-          background: linearGradients[activeCard % linearGradients.length],
-        }}
-        className={cn(
-          "hidden lg:block h-60 w-80 rounded-md bg-white sticky top-20 overflow-hidden",
-          contentClassName
-        )}
-      >
-        {content[activeCard].content ?? null}
-      </motion.div>
+ animate={{
+    background: linearGradients[activeCard % linearGradients.length],
+ }}
+ className={cn(
+    "hidden lg:block h-60 w-80 rounded-md bg-white sticky top-20 overflow-hidden sm:hidden", // Added sm:hidden
+    contentClassName
+ )}
+>
+ {content[activeCard].content ?? null}
+</motion.div>
     </motion.div>
+    </div>
   );
 };
