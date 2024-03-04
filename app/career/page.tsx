@@ -20,7 +20,7 @@ export function  SignupFormDemo() {
     formData.append('role',role);
     formData.append('mobile',mobile);
     if(resume) formData.append('resume',resume);
-    const response = await fetch('http://localhost:4500/api/save-details',{
+    const response = await fetch('https://ok7-ts-backend.adaptable.app/api/save-details',{
       method: 'POST',
       body: formData
     });
